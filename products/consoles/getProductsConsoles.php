@@ -1,7 +1,32 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sergio
- * Date: 7/11/18
- * Time: 11:50
- */
+
+include('../../connect.php');
+
+if(isset($_GET['callback'])){
+    $callback=$_GET['callback'];
+}
+else{
+    $callback=false;
+}
+
+//var_dump($_GET);
+
+$id="";
+
+foreach (array_keys($_GET) as $key) {
+    $$key = $_GET[$key];
+}
+
+if($id == "") {
+    //var_dump("jkhfkh");
+    $sql = "SELECT * FROM producto INNER JOIN tipoProducto ON producto.idTipo = tipoProducto.id WHERE tipoProducto.nombre='consola'";
+    $resultado1 = $conexion->prepare($sql);
+    $resultado1->execute();
+
+    $resultado1->bind_result($id,$nombre,$descripcion,$fechaLanzamiento,$idDesarrollador,$idTipo,$cantidad);
+
+    $alumnos = array();
+    while ($resultado1->fetch()) {
+        $alumnos[] = array('id' => $idAlumno, 'nombre' => $nombreAlumno, 'apellido1' => $apellido1Alumno, 'apellido2' => $apellido2Alumno, 'fecha_nac' => $fechaAlumno, 'provincia' => $provinciaAlumno, 'DNI' => $dniAlumno);
+    }
+}

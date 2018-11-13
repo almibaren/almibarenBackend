@@ -14,10 +14,10 @@ if ($user != "" && $passwd != "") {
     $res = $conexion->prepare($sql);
     $res->bind_param('ss', $user, $passwd);
     $res->execute();
-    $res->bind_result($dni, $nombre, $apel1, $apel2, $user, $passwd, $imagen);
+    $res->bind_result($dni, $nombre, $apel1, $apel2,$email, $user, $passwd, $imagen);
     $cliente = array();
     while ($res->fetch()) {
-        $cliente = array('dni' => $dni, 'nombre' => $nombre, 'apellido1' => $apel1, 'apellido2' => $apel2, 'user' => $user, 'passwd' => $passwd, 'imagen' => $imagen);
+        $cliente = array('dni' => $dni, 'nombre' => $nombre, 'apellido1' => $apel1, 'apellido2' => $apel2,'email'=>$email, 'user' => $user, 'passwd' => $passwd, 'imagen' => $imagen);
     }
     $datos = json_encode($cliente);
     echo $datos;

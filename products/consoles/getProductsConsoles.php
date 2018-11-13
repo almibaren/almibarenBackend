@@ -11,14 +11,11 @@ else{
 
 //var_dump($_GET);
 
-$id="";
+$dni="";
 
-foreach (array_keys($_GET) as $key) {
-    $$key = $_GET[$key];
-}
 
+//TODO
 if($id == "") {
-    //var_dump("jkhfkh");
     $sql = "SELECT * FROM producto INNER JOIN tipoProducto ON producto.idTipo = tipoProducto.id WHERE tipoProducto.nombre='consola'";
     $resultado1 = $conexion->prepare($sql);
     $resultado1->execute();
@@ -29,4 +26,5 @@ if($id == "") {
     while ($resultado1->fetch()) {
         $alumnos[] = array('id' => $idAlumno, 'nombre' => $nombreAlumno, 'apellido1' => $apellido1Alumno, 'apellido2' => $apellido2Alumno, 'fecha_nac' => $fechaAlumno, 'provincia' => $provinciaAlumno, 'DNI' => $dniAlumno);
     }
+
 }

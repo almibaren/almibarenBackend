@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="187e45f1-5f31-4206-945d-2c26e52a147b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/connect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/consoles/getProductsConsoles.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/consoles/getProductsConsoles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/getProductsMain.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/getProductsMain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/signup/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/signup/signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/updateUserData.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/updateUserData.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,12 +50,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="72" />
-          <entry key="php" value="4619" />
+          <entry key="php" value="4770" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="4611" />
+          <entry key="PHP" value="4762" />
           <entry key="PLAIN_TEXT" value="72" />
           <entry key="SQL" value="8" />
         </counts>
@@ -119,8 +113,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/products/getProductsMain.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="145" column="29" lean-forward="true" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
+            <state relative-caret-position="300">
+              <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -330,12 +324,12 @@
       <workItem from="1541594436399" duration="12987000" />
       <workItem from="1542010167513" duration="9829000" />
       <workItem from="1542026273850" duration="7610000" />
-      <workItem from="1542103021869" duration="2786000" />
+      <workItem from="1542103021869" duration="5133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40864000" />
+    <option name="totallyTimeSpent" value="43211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="987" extended-state="6" />
@@ -618,8 +612,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/products/getProductsMain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="145" column="29" lean-forward="true" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
+        <state relative-caret-position="300">
+          <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
         </state>
       </provider>
     </entry>

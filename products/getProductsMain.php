@@ -32,7 +32,7 @@ while ($resPopId->fetch()) {
 }
 if (count($pPopId) > 0) {
     foreach ($pPopId as $item) {
-        $sqlPop = "SELECT p.nombre,i.url,hp.descuento,pr.precio
+        $sqlPop = "SELECT p.id, p.nombre,i.url,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
@@ -42,10 +42,10 @@ if (count($pPopId) > 0) {
         $resPop = $conexion2->prepare($sqlPop);
         $resPop->bind_param('i', $item);
         $resPop->execute();
-        $resPop->bind_result($nombre, $url, $descuento, $precio);
+        $resPop->bind_result($id, $nombre, $url, $descuento, $precio);
         $pPop = array();
         while ($resPop->fetch()) {
-            $pPop = array('nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            $pPop = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
             $pPops[] = $pPop;
         }
 
@@ -59,7 +59,7 @@ if (count($pPopId) > 0) {
 
 //Recommended for you
 if ($userId != "") {
-    $sqlRecG = "SELECT DISTINCT g.nombre
+    $sqlRecG = "SELECT DISTINCT g.nombre, t.fechaTransaccion
 FROM genero g
 INNER JOIN generoProducto gp ON g.id = gp.idGenero
 INNER JOIN producto p ON gp.idProducto = p.id
@@ -69,31 +69,51 @@ INNER JOIN tipoTransaccion tt ON t.idTipo = tt.id
 WHERE tt.nombre='Compra' AND t.dniCliente=?
 ORDER BY t.fechaTransaccion DESC
 LIMIT 0,3";
-    $resRecG = $conexion->prepare($sqlRecG);
-    $resRecG->bind_param(s, $userId);
+    $resRecG = $conexion3->prepare($sqlRecG);
+    $resRecG->bind_param('s', $userId);
     $resRecG->execute();
-    $resRecG->bind_result($genero);
+    $resRecG->bind_result($genero,$fec);
     while ($resRecG->fetch()) {
         $generoRec[] = $genero;
     }
     if (count($generoRec) > 0) {
-        $sqlRecId = "SELECT p.id
-FROM genero g
-INNER JOIN generoProducto gp ON g.id = gp.idGenero
-INNER JOIN producto p ON gp.idProducto = p.id
-INNER JOIN productoTransaccion pt ON p.id = pt.idProducto
-INNER JOIN transaccion t ON pt.idTransaccion = t.id
-INNER JOIN tipoTransaccion tt ON t.idTipo = tt.id
-WHERE g.nombre=? OR g.nombre=? OR g.nombre=?";
+        $sqlRecId = "
+SELECT p.id 
+FROM producto p 
+INNER JOIN generoProducto gp ON p.id = gp.idProducto 
+INNER JOIN genero g ON gp.idGenero = g.id 
+WHERE p.id NOT IN (
+    SELECT p.id FROM producto p 
+	INNER JOIN productoTransaccion pt ON p.id = pt.idProducto 
+	INNER JOIN transaccion t ON pt.idTransaccion = t.id
+	WHERE t.dniCliente=? )
+AND g.nombre=? OR g.nombre=? OR g.nombre=?";
         $resRecId = $conexion->prepare($sqlRecId);
-        $resRecId->bind_param('sss', $generoRec[0], $generoRec[1], $generoRec[2]);
+        $resRecId->bind_param('ssss', $userId, $generoRec[0], $generoRec[1], $generoRec[2]);
         $resRecId->execute();
         $resRecId->bind_result($id);
         while ($resRecId->fetch()) {
             $pRecId[] = $id;
         }
 
-
+        foreach ($pRecId as $item) {
+            $sqlRec = "SELECT p.id,p.nombre,i.url,hp.descuento,pr.precio
+  FROM  producto p 
+  INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
+  INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
+  INNER JOIN productoImagen pi ON p.id = pi.idProducto
+  INNER JOIN imagen i ON pi.idImagen = i.id
+  WHERE p.id=?";
+            $resRec = $conexion2->prepare($sqlRec);
+            $resRec->bind_param('i', $item);
+            $resRec->execute();
+            $resRec->bind_result($id, $nombre, $url, $descuento, $precio);
+            while ($resRec->fetch()) {
+                $pRec = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            }
+            $pRecs[] = $pRec;
+        }
+        $productos[] = $pRecs;
 
     }
 }
@@ -113,7 +133,7 @@ while ($resRateId->fetch()) {
 }
 if (count($pRateId) > 0) {
     foreach ($pRateId as $item) {
-        $sqlRate = "SELECT p.nombre,i.url,hp.descuento,pr.precio
+        $sqlRate = "SELECT p.id, p.nombre,i.url,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
@@ -123,9 +143,9 @@ if (count($pRateId) > 0) {
         $resRate = $conexion2->prepare($sqlRate);
         $resRate->bind_param('i', $item);
         $resRate->execute();
-        $resRate->bind_result($nombre, $url, $descuento, $precio);
+        $resRate->bind_result($id, $nombre, $url, $descuento, $precio);
         while ($resRate->fetch()) {
-            $pRate = array('nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            $pRate = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
         }
         $pRates[] = $pRate;
     }
@@ -149,7 +169,7 @@ while ($resDealId->fetch()) {
 }
 if (count($pDealId) > 0) {
     foreach ($pDealId as $item) {
-        $sqlDeal = "SELECT p.nombre,i.url,hp.descuento,pr.precio
+        $sqlDeal = "SELECT p.id, p.nombre,i.url,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
@@ -159,9 +179,9 @@ if (count($pDealId) > 0) {
         $resDeal = $conexion2->prepare($sqlDeal);
         $resDeal->bind_param('i', $item);
         $resDeal->execute();
-        $resDeal->bind_result($nombre, $url, $descuento, $precio);
+        $resDeal->bind_result($id, $nombre, $url, $descuento, $precio);
         while ($resDeal->fetch()) {
-            $pDeal = array('nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            $pDeal = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
         }
         $pDeals[] = $pDeal;
     }
@@ -175,36 +195,3 @@ if ($callback) {
 } else {
     echo $datos;
 }
-
-
-/* PARA SELECIONAR EL GENERO PARA LAS RECOMENACIONES
- SELECT DISTINCT g.nombre
-FROM genero g
-INNER JOIN generoProducto gp ON g.id = gp.idGenero
-INNER JOIN producto p ON gp.idProducto = p.id
-INNER JOIN productoTransaccion pt ON p.id = pt.idProducto
-INNER JOIN transaccion t ON pt.idTransaccion = t.id
-INNER JOIN tipoTransaccion tt ON t.idTipo = tt.id
-WHERE tt.nombre="Compra" AND t.dniCliente="123456987D"
-ORDER BY t.fechaTransaccion DESC
-LIMIT 0,3;*/
-
-/*PARA SELECIONAR LOS IDS DEPENDIENDO DE LOS GEENROS DE LA CONSULTA ANTERIOR
- * SELECT p.id
-FROM genero g
-INNER JOIN generoProducto gp ON g.id = gp.idGenero
-INNER JOIN producto p ON gp.idProducto = p.id
-INNER JOIN productoTransaccion pt ON p.id = pt.idProducto
-INNER JOIN transaccion t ON pt.idTransaccion = t.id
-INNER JOIN tipoTransaccion tt ON t.idTipo = tt.id
-WHERE g.nombre="TCG" OR g.nombre="" OR g.nombre=""*/
-
-/*PARA SELECIIONAR LOS PRODUCTOS A MOSTRAR
- * SELECT p.id,p.nombre,i.url
-FROM genero g
-INNER JOIN generoProducto gp ON g.id = gp.idGenero
-INNER JOIN producto p ON gp.idProducto = p.id
-INNER JOIN desarrollador d ON p.idDesarrollador= d.id
-INNER JOIN productoImagen pi ON p.id = pi.idProducto
-INNER JOIN imagen i ON pi.idImagen = i.id
-WHERE g.nombre="TCG" OR g.nombre="" OR g.nombre=""*/

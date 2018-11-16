@@ -32,28 +32,27 @@ while ($resPopId->fetch()) {
 }
 if (count($pPopId) > 0) {
     foreach ($pPopId as $item) {
-        $sqlPop = "SELECT p.id, p.nombre,i.url,hp.descuento,pr.precio
+        $sqlPop = "SELECT DISTINCT p.id, p.nombre,i.url,i.url2,i.url3,i.url4,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
-  INNER JOIN productoImagen pi ON p.id = pi.idProducto
-  INNER JOIN imagen i ON pi.idImagen = i.id
+  INNER JOIN imagen i ON p.id = i.id
   WHERE p.id=?";
         $resPop = $conexion2->prepare($sqlPop);
         $resPop->bind_param('i', $item);
         $resPop->execute();
-        $resPop->bind_result($id, $nombre, $url, $descuento, $precio);
+        $resPop->bind_result($id, $nombre, $url, $url2, $url3, $url4, $descuento, $precio);
         $pPop = array();
         while ($resPop->fetch()) {
-            $pPop = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            $pPop = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'url4' => $url4, 'descuento' => $descuento, 'precio' => $precio);
             $pPops[] = $pPop;
         }
 
     }
-    $productos[] = $pPops;
+    $productosP = $pPops;
     //if there is no user the personal reccomendations are the popular items
     if ($userId == "") {
-        $productos[] = $pPops;
+        $pRecs = $pPops;
     }
 }
 
@@ -72,7 +71,7 @@ LIMIT 0,3";
     $resRecG = $conexion3->prepare($sqlRecG);
     $resRecG->bind_param('s', $userId);
     $resRecG->execute();
-    $resRecG->bind_result($genero,$fec);
+    $resRecG->bind_result($genero, $fec);
     while ($resRecG->fetch()) {
         $generoRec[] = $genero;
     }
@@ -97,19 +96,18 @@ AND g.nombre=? OR g.nombre=? OR g.nombre=?";
         }
 
         foreach ($pRecId as $item) {
-            $sqlRec = "SELECT p.id,p.nombre,i.url,hp.descuento,pr.precio
+            $sqlRec = "SELECT DISTINCT p.id, p.nombre,i.url,i.url2,i.url3,i.url4,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
-  INNER JOIN productoImagen pi ON p.id = pi.idProducto
-  INNER JOIN imagen i ON pi.idImagen = i.id
+  INNER JOIN imagen i ON p.id = i.id
   WHERE p.id=?";
             $resRec = $conexion2->prepare($sqlRec);
             $resRec->bind_param('i', $item);
             $resRec->execute();
-            $resRec->bind_result($id, $nombre, $url, $descuento, $precio);
+            $resRec->bind_result($id, $nombre, $url, $url2, $url3, $url4, $descuento, $precio);
             while ($resRec->fetch()) {
-                $pRec = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+                $pRec = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'url4' => $url4, 'descuento' => $descuento, 'precio' => $precio);
             }
             $pRecs[] = $pRec;
         }
@@ -133,19 +131,18 @@ while ($resRateId->fetch()) {
 }
 if (count($pRateId) > 0) {
     foreach ($pRateId as $item) {
-        $sqlRate = "SELECT p.id, p.nombre,i.url,hp.descuento,pr.precio
+        $sqlRate = "SELECT DISTINCT p.id, p.nombre,i.url,i.url2,i.url3,i.url4,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
-  INNER JOIN productoImagen pi ON p.id = pi.idProducto
-  INNER JOIN imagen i ON pi.idImagen = i.id
+  INNER JOIN imagen i ON p.id = i.id
   WHERE p.id=?";
         $resRate = $conexion2->prepare($sqlRate);
         $resRate->bind_param('i', $item);
         $resRate->execute();
-        $resRate->bind_result($id, $nombre, $url, $descuento, $precio);
+        $resRate->bind_result($id, $nombre, $url, $url2, $url3, $url4, $descuento, $precio);
         while ($resRate->fetch()) {
-            $pRate = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            $pRate = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'url4' => $url4, 'descuento' => $descuento, 'precio' => $precio);
         }
         $pRates[] = $pRate;
     }
@@ -169,19 +166,18 @@ while ($resDealId->fetch()) {
 }
 if (count($pDealId) > 0) {
     foreach ($pDealId as $item) {
-        $sqlDeal = "SELECT p.id, p.nombre,i.url,hp.descuento,pr.precio
+        $sqlDeal = "SELECT DISTINCT p.id, p.nombre,i.url,i.url2,i.url3,i.url4,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
-  INNER JOIN productoImagen pi ON p.id = pi.idProducto
-  INNER JOIN imagen i ON pi.idImagen = i.id
+  INNER JOIN imagen i ON p.id = i.id
   WHERE p.id=?";
         $resDeal = $conexion2->prepare($sqlDeal);
         $resDeal->bind_param('i', $item);
         $resDeal->execute();
-        $resDeal->bind_result($id, $nombre, $url, $descuento, $precio);
+        $resDeal->bind_result($id, $nombre, $url, $url2, $url3, $url4, $descuento, $precio);
         while ($resDeal->fetch()) {
-            $pDeal = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
+            $pDeal = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'url4' => $url4, 'descuento' => $descuento, 'precio' => $precio);
         }
         $pDeals[] = $pDeal;
     }
@@ -189,7 +185,9 @@ if (count($pDealId) > 0) {
 }
 
 
-$datos = json_encode($productos);
+$datos = array("populares" => $pPops, "recomendados" => $pRecs, "valorados" => $pRates, "ofertas" => $pDeals);
+
+$datos = json_encode($datos);
 if ($callback) {
     echo sprintf('%s(%s)', $callback, $datos);
 } else {

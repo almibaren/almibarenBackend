@@ -10,21 +10,21 @@ $nombre = $request->nombre;
 $apel1 = $request->apellido1;
 $apel2 = $request->apellido2;
 $email = $request->email;
-$user = $request->user;
+$usu = $request->user;
 $passwd = $request->passwd;
 $img = $request->imagen;
 
 $sqlCheck = "Select * from cliente WHERE usuario=?";
 $resCheck = $conexion->prepare($sqlCheck);
-$resCheck->bind_param('s', $user);
+$resCheck->bind_param('s', $usu);
 $resCheck->execute();
 
 if ($resCheck->num_rows == 0) {
 
-    if ($dni != "" && $user != "" && $passwd != "") {
-        $sql = "INSERT INTO cliente VALUES(?,?,?,?,?,?,?)";
-        $res = $conexion2->prepare($sql);
-        $res->bind_param('sssssss', $dni, $nombre, $apel1, $apel2, $email, $user, $passwd, $img);
+    if ($dni != "" && $usu != "" && $passwd != "") {
+        $sql = "INSERT INTO cliente VALUES(?,?,?,?,?,?,?,?)";
+        $res = $conexion3->prepare($sql);
+        $res->bind_param('ssssssss', $dni, $nombre, $apel1, $apel2, $email, $usu, $passwd, $img);
         $res->execute();
 
         $valor['insertado'] = $res->affected_rows;

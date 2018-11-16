@@ -1,12 +1,12 @@
 <?php
-class SaleAPI{
+class ProductListAPI{
     public function API(){
         header('Content-Type:application/JSON');
         $method=$_SERVER['REQUEST_METHOD'];
         switch ($method){
 
-            case 'POST':
-                include('commitSale.php');
+            case 'GET':
+                include('getProducts.php');
                 break;
 
              default:

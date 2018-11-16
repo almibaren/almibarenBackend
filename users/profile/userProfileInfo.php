@@ -1,7 +1,2 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sergio
- * Date: 7/11/18
- * Time: 11:42
- */
+//tickets que ha mandado, sus transacciones , su cuenta entera otra vez

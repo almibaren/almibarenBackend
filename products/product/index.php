@@ -16,6 +16,6 @@ if($_SERVER['REQUEST_METHOD']=='OPTIONS'){
     }
     exit(0);
 }
-require_once "ticketsAPI.php";
-$ticketsAPI= new TicketsAPI();
-$ticketsAPI -> API();
+require_once "GamesAPI.php";
+$gamesAPI= new GamesAPI();
+$gamesAPI ->API();

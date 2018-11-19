@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="187e45f1-5f31-4206-945d-2c26e52a147b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/products/consoles/getProductsConsoles.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/consoles/getProductsConsoles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/games/getProductsGames.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/games/getProductsGames.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/getProductsMain.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/getProductsMain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/search/getProductsSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/search/getProductsSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/smarttab/getProductsSmartTab.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/smarttab/getProductsSmartTab.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/SaleAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/SaleAPI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/commitSale.php" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/commitSale.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/profile/userProfileInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/profile/userProfileInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/signup/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/signup/signup.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/tickets/getUserTickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/tickets/getUserTickets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/tickets/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/tickets/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,27 +40,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="htaccess" value="4" />
-          <entry key="php" value="90" />
+          <entry key="php" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="90" />
+          <entry key="PHP" value="97" />
           <entry key="htaccess" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="77" />
-          <entry key="php" value="7852" />
+          <entry key="php" value="9211" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="7838" />
+          <entry key="PHP" value="9191" />
           <entry key="PLAIN_TEXT" value="84" />
-          <entry key="SQL" value="14" />
+          <entry key="SQL" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -79,7 +72,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/consoles/getProductsConsoles.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="559">
@@ -89,37 +82,60 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/products/smarttab/getProductsSmartTab.php">
+        <entry file="file://$PROJECT_DIR$/products/product/GamesAPI.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="36" column="87" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="87" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/login/login.php">
+        <entry file="file://$PROJECT_DIR$/products/product/index.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/products/product/getProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="10" />
+            <state relative-caret-position="390">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users/tickets/getUserTickets.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/users/profile/userProfileInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="71" selection-start-line="1" selection-start-column="71" selection-end-line="1" selection-end-column="71" />
+            <state relative-caret-position="105">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/products/getProductsMain.php">
+        <entry file="file://$PROJECT_DIR$/transaction/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="177" column="90" selection-start-line="177" selection-start-column="90" selection-end-line="177" selection-end-column="90" />
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users/tickets/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -127,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transaction/commitSale.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-251">
-              <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+            <state relative-caret-position="150">
+              <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -138,33 +154,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
               <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/products/games/getProductsGames.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="39" column="169" selection-start-line="39" selection-start-column="169" selection-end-line="39" selection-end-column="169" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/products/search/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/products/search/SearchAPI.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -190,7 +179,6 @@
         <option value="$PROJECT_DIR$/users/profile/ProfileAPI.php" />
         <option value="$PROJECT_DIR$/users/signup/index.php" />
         <option value="$PROJECT_DIR$/users/signup/SignupAPI.php" />
-        <option value="$PROJECT_DIR$/users/tickets/index.php" />
         <option value="$PROJECT_DIR$/users/tickets/ticketsAPI.php" />
         <option value="$PROJECT_DIR$/products/ProductsAPI.php" />
         <option value="$PROJECT_DIR$/products/index.php" />
@@ -216,8 +204,6 @@
         <option value="$PROJECT_DIR$/products/techList/ProductListAPI.php" />
         <option value="$PROJECT_DIR$/users/signup/signup.php" />
         <option value="$PROJECT_DIR$/products/techList/getProducts.php" />
-        <option value="$PROJECT_DIR$/users/profile/userProfileInfo.php" />
-        <option value="$PROJECT_DIR$/users/tickets/getUserTickets.php" />
         <option value="$PROJECT_DIR$/transaction/SaleAPI.php" />
         <option value="$PROJECT_DIR$/transaction/commitSale.php" />
         <option value="$PROJECT_DIR$/products/smarttab/getProductsSmartTab.php" />
@@ -225,6 +211,11 @@
         <option value="$PROJECT_DIR$/products/getProductsMain.php" />
         <option value="$PROJECT_DIR$/products/search/getProductsSearch.php" />
         <option value="$PROJECT_DIR$/products/consoles/getProductsConsoles.php" />
+        <option value="$PROJECT_DIR$/products/product/GamesAPI.php" />
+        <option value="$PROJECT_DIR$/products/product/getProduct.php" />
+        <option value="$PROJECT_DIR$/users/tickets/index.php" />
+        <option value="$PROJECT_DIR$/users/tickets/getUserTickets.php" />
+        <option value="$PROJECT_DIR$/users/profile/userProfileInfo.php" />
       </list>
     </option>
   </component>
@@ -235,7 +226,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="992" />
+    <option name="x" value="65" />
     <option name="y" value="-4" />
     <option name="width" value="928" />
     <option name="height" value="979" />
@@ -265,25 +256,13 @@
               <item name="almibarenBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="almibarenBackend" type="462c0819:PsiDirectoryNode" />
               <item name="products" type="462c0819:PsiDirectoryNode" />
-              <item name="consoles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="almibarenBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="almibarenBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
               <item name="games" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="almibarenBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="almibarenBackend" type="462c0819:PsiDirectoryNode" />
               <item name="products" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="almibarenBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="almibarenBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-              <item name="smarttab" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="almibarenBackend" type="b2602c69:ProjectViewProjectNode" />
@@ -307,12 +286,6 @@
               <item name="users" type="462c0819:PsiDirectoryNode" />
               <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="almibarenBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="almibarenBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="tickets" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -328,11 +301,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/products/product" />
       <recent name="$PROJECT_DIR$/products/techList" />
       <recent name="$PROJECT_DIR$/transaction" />
       <recent name="$PROJECT_DIR$/tech" />
       <recent name="$PROJECT_DIR$/products/smarttab" />
-      <recent name="$PROJECT_DIR$/products/search" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/products" />
@@ -364,12 +337,12 @@
       <workItem from="1541594436399" duration="12987000" />
       <workItem from="1542010167513" duration="9829000" />
       <workItem from="1542026273850" duration="7610000" />
-      <workItem from="1542103021869" duration="37703000" />
+      <workItem from="1542103021869" duration="44770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75781000" />
+    <option name="totallyTimeSpent" value="82848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="979" extended-state="6" />
@@ -436,13 +409,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/tickets/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -513,13 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transaction/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -621,24 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/tickets/getUserTickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products/search/SearchAPI.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/profile/userProfileInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="71" selection-start-line="1" selection-start-column="71" selection-end-line="1" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -653,13 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transaction/commitSale.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-251">
-          <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -695,6 +633,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
           <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/product/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/product/GamesAPI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/product/getProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transaction/commitSale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transaction/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/tickets/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/tickets/getUserTickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/profile/userProfileInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>

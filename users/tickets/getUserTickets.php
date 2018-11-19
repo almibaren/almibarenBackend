@@ -5,6 +5,14 @@ if (isset($_GET['callback'])) {
 } else {
     $callback = false;
 }
+
+if (isset($_GET['userId'])) {
+    $userId = $_GET['userId'];
+} else {
+    die();
+}
+
+
 $sql = "Select t.id from transaccion t INNER JOIN tipoTransaccion tt ON t.idTipo = tt.id where tt.nombre='reparacion' AND dniCliente=?";
 $res = $conexion->prepare($sql);
 $res->bind_param('s', $userId);
@@ -15,16 +23,27 @@ while ($res->fetch()) {
 }
 
 if (count($idTs) > 0) {
-    $sqlDEF = "SELECT t.precio,t.fechatransaccion,t.fechaEntrada,t.fechaEstimada,p.nombre,p.descripcion,i.url
+    foreach ($idTs as $idT) {
+
+        $sqlDEF = "SELECT t.precio,t.fechatransaccion,t.fechaEntrada,t.fechaEstimada,pt.descripcionAveria,p.nombre,i.url
 FROM transaccion t 
 INNER JOIN productoTransaccion pt ON t.id = pt.idTransaccion 
 INNER JOIN producto p ON pt.idProducto = p.id 
-INNER JOIN productoImagen pi ON p.id = pi.idProducto
-INNER  JOIN imagen i ON pi.idImagen = i.id
+INNER  JOIN imagen i ON p.id = i.id
 WHERE t.id=?";
-}
 
-$datos = json_encode($productos);
+        $resDEF = $conexion->prepare($sqlDEF);
+        $resDEF->bind_param('i', $idT);
+        $resDEF->execute();
+        $resDEF->bind_result($precio, $fechaTransaccion, $fechaEntrada, $fechaEstimada, $descripcionAveria, $nombreProducto, $url);
+        while ($resDEF->fetch()) {
+            $regs = array('nombreProducto' => $nombreProducto, 'url' => $url, 'fechaTransaccion' => $fechaTransaccion, 'fechaEntrada' => $fechaEntrada, 'fechaEstimada' => $fechaEstimada, 'descripcionAveria' => $descripcionAveria, 'precio' => $precio);
+        }
+    }
+} else {
+    die();
+}
+$datos = json_encode($regs);
 if ($callback) {
     echo sprintf('%s(%s)', $callback, $datos);
 } else {

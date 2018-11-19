@@ -25,7 +25,7 @@ $dni = "";
     }
     if (count($prodID) > 0) {
         foreach ($prodID as $item) {
-            $sql = "SELECT DISTINCT p.id, p.nombre,i.url,i.url2,i.url3,i.url4,hp.descuento,pr.precio
+            $sql = "SELECT DISTINCT p.id, p.nombre,i.url,hp.descuento,pr.precio
   FROM  producto p 
   INNER JOIN historicoPrecio hp ON p.id = hp.idProducto
   INNER JOIN precio pr ON hp.idPrecioProducto = pr.id
@@ -34,10 +34,10 @@ $dni = "";
             $resP = $conexion2->prepare($sql);
             $resP->bind_param('i', $item);
             $resP->execute();
-            $resP->bind_result($id, $nombre, $url,$url2,$url3,$url4, $descuento, $precio);
+            $resP->bind_result($id, $nombre, $url, $descuento, $precio);
             $pPop = array();
             while ($resP->fetch()) {
-                $p = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'url2' => $url2, 'url3' => $url3, 'url4' => $url4, 'descuento' => $descuento, 'precio' => $precio);
+                $p = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
                 $prod[] = $p;
             }
 

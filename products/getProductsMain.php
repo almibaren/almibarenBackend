@@ -72,12 +72,13 @@ LIMIT 0,3";
     $resRecG->bind_param('s', $userId);
     $resRecG->execute();
     $resRecG->bind_result($genero, $fec);
+    $generoRec=null;
     while ($resRecG->fetch()) {
         $generoRec[] = $genero;
     }
     if (count($generoRec) > 0) {
         $sqlRecId = "
-SELECT p.id 
+SELECT DISTINCT p.id 
 FROM producto p 
 INNER JOIN generoProducto gp ON p.id = gp.idProducto 
 INNER JOIN genero g ON gp.idGenero = g.id 
@@ -109,16 +110,21 @@ AND g.nombre=? OR g.nombre=? OR g.nombre=?";
             while ($resRec->fetch()) {
                 $pRec = array('id' => $id, 'nombre' => $nombre, 'url' => $url, 'descuento' => $descuento, 'precio' => $precio);
             }
+            $pRecs = null;
             $pRecs[] = $pRec;
         }
-        $productos[] = $pRecs;
+            $productos[] = $pRecs;
 
+
+
+    }else{
+        $pRecs = $pPops;
     }
 }
 
 
 //By rating
-$sqlRateId = "Select p.id,AVG(o.valoracion) as media
+$sqlRateId = "Select DISTINCT p.id,AVG(o.valoracion) as media
 from producto p inner join opinion o ON p.id = o.idProducto
 group by p.id
 order by media DESC
@@ -151,7 +157,7 @@ if (count($pRateId) > 0) {
 
 
 //By Deals
-$sqlDealId = "Select p.id 
+$sqlDealId = "Select DISTINCT p.id,hp.descuento 
 from producto p 
 inner join historicoPrecio hp ON p.id = hp.idProducto 
 inner join precio pr ON hp.idPrecioProducto = pr.id
@@ -160,7 +166,7 @@ Order by hp.descuento DESC
 Limit 0,10";
 $resDealId = $conexion->prepare($sqlDealId);
 $resDealId->execute();
-$resDealId->bind_result($id);
+$resDealId->bind_result($id,$dto);
 while ($resDealId->fetch()) {
     $pDealId[] = $id;
 }

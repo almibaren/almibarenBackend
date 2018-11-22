@@ -8,9 +8,9 @@ include('../../connect.php');
 
 $keyWords = $request->keywords;
 
-$palabras = explode(":", $keyWords);
+$words = explode(":", $keyWords);
 
-foreach ($palabras as $key){
+foreach ($words as $key){
     if(strlen($key)>1){
 
     }else{
@@ -18,13 +18,13 @@ foreach ($palabras as $key){
     }
 }
 
-$whereSQL = "WHERE p.nombre='" . $palabras[0] . "'";
-if (count($palabras) > 1) {
-    for ($i = 1; $i < count($palabras) ; $i++) {
-        $whereSQL = $whereSQL . " OR p.nombre='" . $palabras[$i] . "'";
+$whereSQL = "WHERE p.nombre='" . $words[0] . "'";
+if (count($words) > 1) {
+    for ($i = 1; $i < count($words) ; $i++) {
+        $whereSQL = $whereSQL . " OR p.nombre='" . $words[$i] . "'";
     }
 }
-foreach ($palabras as $p) {
+foreach ($words as $p) {
     if (strlen($p) > 2) {
         $whereSQL = $whereSQL . " OR p.nombre LIKE '%" . $p . "%' OR g.nombre ='" . $p . "'";
     }

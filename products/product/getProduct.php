@@ -20,6 +20,7 @@ $resRatings = $conexion->prepare($sqlRatings);
 $resRatings->bind_param('i', $productId);
 $resRatings->execute();
 $resRatings->bind_result($userOpinion, $ValoracionOpinion, $commentOpinion);
+$opiniones=null;
 while ($resRatings->fetch()){
     $opiniones[] = array('user'=>$userOpinion,'valoracion'=>$ValoracionOpinion,'comentario'=>$commentOpinion);
 }

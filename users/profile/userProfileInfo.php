@@ -30,6 +30,7 @@ WHERE t.idTipo=1 AND t.dniCliente=?";
     $resTCID->bind_param('i', $userId);
     $resTCID->execute();
     $resTCID->bind_result($TCID);
+    $TCIDs = null;
     while ($resTCID->fetch()) {
         $TCIDs[] = $TCID;
     }
@@ -54,6 +55,7 @@ WHERE t.idTipo=2 AND t.dniCliente=?";
     $resTAID->bind_param('s', $userId);
     $resTAID->execute();
     $resTAID->bind_result($TAID);
+    $TAIDs = null;
     while ($resTAID->fetch()) {
         $TAIDs[] = $TAID;
     }
@@ -83,7 +85,7 @@ WHERE t.idTipo=3 AND t.dniCliente=?";
     $resTRID->bind_param('s', $userId);
     $resTRID->execute();
     $resTRID->bind_result($TRID);
-
+    $TRIDs = null;
     while ($resTRID->fetch()) {
         $TRIDs[] = $TRID;
     }

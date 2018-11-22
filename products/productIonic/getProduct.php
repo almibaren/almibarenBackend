@@ -20,6 +20,7 @@ $resRatings = $conexion->prepare($sqlRatings);
 $resRatings->bind_param('i', $productId);
 $resRatings->execute();
 $resRatings->bind_result($userOpinion, $ValoracionOpinion, $commentOpinion);
+$opiniones = null;
 while ($resRatings->fetch()){
     $opiniones[] = array('user'=>$userOpinion,'valoracion'=>$ValoracionOpinion,'comentario'=>$commentOpinion);
 }
@@ -37,7 +38,7 @@ $res->bind_param('i', $productId);
 $res->execute();
 $res->bind_result($nombre, $descripcion, $fechaLanzamiento, $desarrollador, $url, $url2, $url3, $url4, $precio,$descuento);
 while ($res->fetch()) {
-$datos = array('nombre'=>$nombre,'descripcion'=>$descripcion,'fechaLanzamiento'=>$fechaLanzamiento,'desarrollador'=>$desarrollador,'url'=>array('url1'=>$url,'url2'=>$url2,'url3'=>$url3,'url4'=>$url4),'precio'=>$precio,'descuento'=>$descuento,'opiniones'=>$opiniones);
+    $datos = array('nombre'=>$nombre,'descripcion'=>$descripcion,'fechaLanzamiento'=>$fechaLanzamiento,'desarrollador'=>$desarrollador,'url'=>array('url1'=>$url,'url2'=>$url2,'url3'=>$url3,'url4'=>$url4),'precio'=>$precio,'descuento'=>$descuento,'opiniones'=>$opiniones);
 }
 
 $datos = json_encode($datos);
